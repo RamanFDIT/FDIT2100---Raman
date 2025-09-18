@@ -4,6 +4,7 @@ import {Button } from '@/components/ui/button';
 import PostsList from '../ui/Posts/PostsList';
 import PostsSkeleton from '../ui/skeletons/PostsSkeletons';
 import styles from './LatestPosts.module.css';
+import ErrorBoundary from '../errors/ErrorBoundary';
 
 export default function LatestPosts() {
   return (
@@ -14,9 +15,11 @@ export default function LatestPosts() {
             <PlusIcon className="size-6" />Create Post
         </Button>
       </div>
-      <Suspense fallback={<PostsSkeleton />}>
-        <PostsList />
-      </Suspense>
+      <ErrorBoundary message="Failed to load posts.">
+        <Suspense fallback={<PostsSkeleton />}>
+          <PostsList />
+        </Suspense>
+      </ErrorBoundary>
     </main>
   );
 }
