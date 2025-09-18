@@ -1,13 +1,22 @@
+import { Suspense } from 'react';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import {Button } from '@/components/ui/button';
+import PostsList from '../ui/Posts/PostsList';
+import PostsSkeleton from '../ui/skeletons/PostsSkeletons';
+import styles from './LatestPosts.module.css';
 
 export default function LatestPosts() {
   return (
-    <main className="flex justify-between mx-w-4xl mx-auto px-4 py-8">
+    <main className="max-w-4xl mx-auto px-4 py-8">
+      <div className="flex justify-between">
         <h2 className="text-4xl font-bold mb-6">Latest Posts</h2>
-        <Button className="">
+        <Button className={styles.create_post_button} variant="outline">
             <PlusIcon className="size-6" />Create Post
         </Button>
+      </div>
+      <Suspense fallback={<PostsSkeleton />}>
+        <PostsList />
+      </Suspense>
     </main>
   );
 }

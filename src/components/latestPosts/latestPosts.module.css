@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.create_post_button {
+    background-color: blue;
+}
