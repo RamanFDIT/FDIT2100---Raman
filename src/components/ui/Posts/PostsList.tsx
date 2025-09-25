@@ -1,4 +1,4 @@
-import { Mutation, useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { fetchPosts } from "@/lib/api";
 import Post from "@/components/ui/Posts/post";
 import  {ArrowRightIcon} from "@heroicons/react/24/solid";
