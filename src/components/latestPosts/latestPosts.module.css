@@ -3,3 +3,6 @@
 .create_post_button {
     background-color: blue;
 }
+.latestPostsContainer {
+    @apply sticky top-[77px] flex justify-between pt-8 bg-white dark:bg-[#242424];
+}
