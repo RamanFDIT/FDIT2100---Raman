@@ -1,6 +1,6 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { Separator } from "@/components/ui/separator";
-import Tag from "@/components/ui/Posts/tag";
+import Tag from "@/components/ui/Posts/Tag";
 import { type Post } from "@/lib/types/post";
 import styles from './postsList.module.css';
 

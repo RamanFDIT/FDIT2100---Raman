@@ -6,6 +6,7 @@ import './App.css';
 import Header from '@/components/header/Header';
 import { Separator } from '@/components/ui/separator';
 import { Outlet } from 'react-router';
+import { PostsLastPageProvider } from './lib/context/PostsLastPageProvider';
 
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
       <Header />
       <Separator className="sticky top-19" />
       <main className="max-w-4xl mx-auto px-4 pb-8">
-        <Outlet />
+        <PostsLastPageProvider>
+          <Outlet />
+        </PostsLastPageProvider>
       </main>
     </QueryClientProvider>
   )

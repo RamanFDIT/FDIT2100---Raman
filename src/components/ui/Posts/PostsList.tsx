@@ -1,13 +1,13 @@
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { fetchPosts } from "@/lib/api";
-import Post from "@/components/ui/Posts/post";
+import Post from "@/components/ui/Posts/Post";
 import  {ArrowRightIcon} from "@heroicons/react/24/solid";
 import { Button } from "@/components/ui/button";
 import styles from './postsList.module.css';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { type PostLastPageState } from "@/lib/types/post";
 
-export default function PostsList() {
-  const [page, setPage] = useState(0);
+export default function PostsList({page, setPage}: PostLastPageState) {
   const  postListRef = useRef (null);
   useEffect (() => {
     if (postListRef.current) {
@@ -38,7 +38,8 @@ export default function PostsList() {
     initialPageParam: 0,
     getNextPageParam: (mostRecentPage) => {
       return mostRecentPage.skip + mostRecentPage.limit < mostRecentPage.total ? page + 1 : undefined;
-    }
+    },
+    staleTime: 60000,
   });
   console.log('data', data);
   return (
