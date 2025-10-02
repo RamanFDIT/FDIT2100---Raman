@@ -8,7 +8,7 @@ import ErrorBoundary from '../errors/ErrorBoundary';
 
 export default function LatestPosts() {
   return (
-    <main className="max-w-4xl mx-auto px-4 pb-8">
+    <>
       <div className={styles.latestPostsContainer}>
         <h2 className="text-4xl font-bold mb-6">Latest Posts</h2>
         <Button className={styles.create_post_button} variant="outline">
@@ -20,6 +20,6 @@ export default function LatestPosts() {
           <PostsList />
         </Suspense>
       </ErrorBoundary>
-    </main>
+    </>
   );
 }
